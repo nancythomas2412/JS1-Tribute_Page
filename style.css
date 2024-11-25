@@ -1,0 +1,394 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+  overflow-y: auto;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+section {
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+/* Light/Dark Mode Toggle */
+
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+body.light-mode h1{
+  color: black;
+}
+
+body.light-mode blockquote{
+  color: green;
+}
+
+body.light-mode .scroll-arrow{
+  color:#00bcd4;
+}
+
+body.light-mode p.contentOne{
+  color: black;
+}
+
+body.dark-mode {
+  background-color: black;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  /* background-color: #ffffff; */
+  color: #0097a7;
+  border: none;
+  padding: 10px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background-color: #0097a7;
+  color: white;
+}
+
+/* -------------- page one -------------- */
+#pageOne {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.right {
+  color: whitesmoke;
+  text-align: center;
+  flex: 2;
+  margin-top: 0;
+  padding-right: 5%;
+}
+.left {
+  color: rgb(60, 60, 60);
+}
+/* image */
+img {
+  height: 100vh;
+  /* opacity: 0; */
+  animation: easeIn 8s ease-in forwards;
+}
+/* image animation*/
+@keyframes easeIn {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*---------------*/ /*--------------------*/
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 70px;
+  text-transform: uppercase;
+  /* opacity: 0; */
+  animation: dropIn 0.5s ease-in forwards;
+}
+@keyframes dropIn {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+blockquote {
+  margin: 10px 0;
+  font-style: italic;
+  color: yellow;
+  font-size: 30px;
+  /* opacity: 0; */
+  animation: slideInUp 3s ease-in forwards;
+}
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 20px;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 4rem;
+  color: white;
+  text-decoration: none;
+  animation: easeIn 14s forwards;
+  cursor: pointer;
+}
+.scroll-arrow:hover {
+  color: #00bcd4;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/***************** PAGE 2 *****************/
+#pageTwo {
+  color: whitesmoke;
+  padding: 10%;
+  text-align: center;
+}
+
+h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 70px;
+  color: #00bcd4;
+  text-transform: uppercase;
+  /* opacity: 0; */
+  /* transition: opacity 1s ease-in-out; */
+}
+
+p.contentOne {
+  font-size: 30px;
+}
+
+
+/***************** PAGE 3 *****************/
+#pageThree {
+  padding: 15%;
+  text-align: center;
+  /* align-items: center; */
+}
+
+#pageThree .timeline-container {
+  scrollbar-color: #00bcd4 #f1f1f1; /* Thumb color and track background */
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+}
+
+
+.timeline-container {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden; /* Allow vertical scrolling */
+  max-height: 600px; /* Adjust based on your design */
+  width: 100%;
+  background: rgba(43, 43, 43, 0.3); /* White with 80% opacity */
+  border-radius: 20px;
+}
+
+.timeline-container::before {
+  content: ""; /* Creates the vertical line */
+  position: absolute;
+  top: 9px; /* Start from the top of the container */
+  left: 50%; /* Center the line horizontally */
+  transform: translateX(-50%); /* Center the line precisely */
+  width: 5px; /* Line thickness */
+  /* height: 156vw; Make it extend the full height of the container */
+  height: calc(var(--timeline-line-height, 156vw)); /* Use dynamic variable */
+  background-color: #4a4a4a; /* Line color */
+  border-radius: 60px;
+  z-index: -1; /* Ensure it stays behind timeline items */
+  transition: height 0.3s ease;
+}
+
+/* DOT on ODD */
+.timeline-item:nth-child(odd)::before{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #00bcd4;
+  border-radius: 50%;
+  top: 35%;
+  transform: translate(88px, 15px);
+  z-index: 1;
+}
+
+/* DOT on EVEN */
+.timeline-item:nth-child(even)::after{
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #00bcd4;
+  border-radius: 50%;
+  top: 35%;
+  transform: translate(498px, 15px);
+  z-index: 1;
+}
+
+.timeline-item{
+  display: flex;
+  justify-content: center;
+  /* margin: 20px 0; */
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.timeline-year {
+  position: relative;
+  /* align-items: center; */
+  font-size: xx-large;
+  font-weight: bold;
+  color: #00bcd4;
+  z-index: 1;
+}
+
+.timeline-content{
+  flex: 1;
+  font-size: larger;
+  max-width: 25vw;
+  background-color: whitesmoke;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Arrow for the odd (left) items */
+.timeline-item:nth-child(odd) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 10px 10px 0; /* Triangular arrow shape */
+  border-color: transparent whitesmoke transparent transparent;
+
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 60%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 10px; /* Triangular arrow shape */
+  border-color: transparent transparent transparent whitesmoke;
+}
+
+/* Odd Items (content on the left) */
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  transform: translateX(39%);
+
+  /* left: 43%; */
+   /* Align text for better visuals */
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 60px; /* Push away from the line */
+  transform: translateX(16%);
+
+}
+
+/* Even Items (content on the right) */
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  text-align: right;
+  transform: translateX(6%);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-right: 75px; /* Push away from the line */
+}
+
+/* 
+.timeline-content:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+} */
+
+
+/* Adding more events */
+#add-event {
+  margin: 20px;
+  text-align: center;
+  color: whitesmoke;
+}
+
+h3{
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: #00bcd4;
+}
+
+#timeline-form input {
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+
+#timeline-form button {
+  background-color: #00bcd4;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#timeline-form button:hover {
+  background-color: #0097a7;
+}
+
+
+@media (max-width: 680px) {
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-content {
+    margin: 10px 0;
+    max-width: 90%;
+  }
+
+  .timeline-year {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+}
