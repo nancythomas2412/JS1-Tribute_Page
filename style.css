@@ -49,7 +49,7 @@ background-color: black;
 }
 
 body.light-mode #theme-toggle:hover{
-  background-color: #0097a7;
+  box-shadow: 0 0 15px 5px #0097a7; /* Glow effect on hover */
   }
 
 body.dark-mode {
@@ -71,7 +71,7 @@ background-color: white;
 }
 
 body.dark-mode #theme-toggle:hover {
-  background-color: #0097a7;
+  box-shadow: 0 0 15px 5px #0097a7; /* Glow effect on hover */
 }
 
 /* -------------- page one -------------- */
@@ -452,3 +452,38 @@ margin-left: 30%;
   color: #0097a7; /* Change the color when hovering over a link */
 }
 
+/* back to top arrow */
+
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px 2px white; /* Default glow for dark mode */
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+body.light-mode #back-to-top {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 8px 2px rgb(0, 0, 0); /* Default glow for dark mode */
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+#back-to-top:hover {
+  box-shadow: 0 0 15px 5px #0097a7; /* Glow effect on hover */
+}
+
+body.light-mode #back-to-top:hover {
+  box-shadow: 0 0 15px 5px #0097a7; /* Same glow effect for light mode */
+}

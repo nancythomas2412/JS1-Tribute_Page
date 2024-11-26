@@ -132,5 +132,33 @@ document.addEventListener("DOMContentLoaded", () => {
      `${baseHeight}vw`
    );
  }
+  //Back to top arrow
+
+  const backToTopButton = document.getElementById("back-to-top");
+
+  function toggleBackToTopButton() {
+    // Show the button only if the user has scrolled past the first page
+    if (window.scrollY > window.innerHeight) {
+      backToTopButton.style.display = "flex"; // Show button
+    } else {
+      backToTopButton.style.display = "none"; // Hide button
+    }
+  }
+  
+  // Add event listener to monitor scrolling
+  window.addEventListener("scroll", toggleBackToTopButton);
+  
+  // Smooth scroll to the top when button is clicked
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+  
+  // Initial check when the page loads
+  toggleBackToTopButton();
+  
+
 });
   
