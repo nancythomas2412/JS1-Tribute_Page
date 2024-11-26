@@ -36,25 +36,42 @@ body.light-mode p.contentOne{
   color: black;
 }
 
+body.light-mode .list li{
+  color: black;
+}
+
+body.light-mode .list a{
+  color: black;
+}
+
+body.light-mode #theme-toggle{
+background-color: black;
+}
+
+body.light-mode #theme-toggle:hover{
+  background-color: #0097a7;
+  }
+
 body.dark-mode {
   background-color: black;
 }
 
+body.dark-mode #theme-toggle{
+background-color: white;
+}
+
 #theme-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  /* background-color: #ffffff; */
-  color: #0097a7;
+  top: 25px;
+  right: 35px;
+  border-radius: 50%;
   border: none;
-  padding: 10px;
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
 }
 
-#theme-toggle:hover {
+body.dark-mode #theme-toggle:hover {
   background-color: #0097a7;
-  color: white;
 }
 
 /* -------------- page one -------------- */
@@ -348,7 +365,7 @@ p.contentOne {
 }
 
 h3{
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: #00bcd4;
 }
@@ -397,24 +414,20 @@ h3{
 
 /* Section 4 Styles */
 #pageFour {
-  text-align: left; /* Center the text inside the section */
+  text-align: center; /* Center the text inside the section */
   padding: 40px; /* Add padding to create some space around the content */
   margin: 0 auto; /* Ensure the section is centered horizontally */
+  margin-top: 30vh;
   max-width: 800px; /* Optional: Set a max-width for the section */
   color: whitesmoke;
 }
 
-a {
-  text-decoration: none;
-  color: white; /* Ensures the link color is inherited from the surrounding text */
-}
-
 
 #pageFour h3 {
-  font-size: 2rem; /* Adjust the font size of the heading */
-  font-family: Arial, sans-serif; /* Optional: Set a font family */
-  color: #00bcd4; /* Optional: Set a color for the heading */
-  margin-bottom: 20px; /* Add some space below the heading */
+  font-size: 2.5rem;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  color:#00bcd4;
+  margin-bottom: 30px; /* Add some space below the heading */
 }
 
 .list ul {
@@ -423,13 +436,15 @@ a {
 
 .list li {
   font-size: 1.2rem; /* Set the font size for list items */
+  text-align: left;
+margin-left: 30%;
   margin-bottom: 15px; /* Space between list items */
 }
 
 .list a {
   text-decoration: none; /* Remove the underline from links */
-  color: #00bcd4; /* Set link color */
-  font-weight: bold; /* Optional: Make links bold */
+  color: #ffffff; /* Set link color */
+  font-size: 1.45rem;
   transition: color 0.3s ease; /* Optional: Smooth transition effect for link hover */
 }
 
